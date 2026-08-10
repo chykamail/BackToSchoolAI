@@ -1,4 +1,4 @@
-import hashlib
+﻿import hashlib
 import os
 import secrets
 import urllib.parse
@@ -97,7 +97,7 @@ def home():
             <div class="box">
                 <h1>BackToSchoolAI</h1>
 
-                <h2>✓ TikTok Connected</h2>
+                <h2>âœ“ TikTok Connected</h2>
 
                 <p>
                     TikTok account:
@@ -183,6 +183,10 @@ def login():
 
     return redirect(authorization_url)
 
+
+@app.route("/callback/tiktokBBCFkc0iuTj8Tw2ddA3R7njDYtHxZgsI.txt")
+def tiktok_verification():
+    return "tiktok-developers-site-verification=BBCFkc0iuTj8Tw2ddA3R7njDYtHxZgsI"
 
 @app.route("/callback")
 def callback():
@@ -569,3 +573,4 @@ if __name__ == "__main__":
         port=int(os.getenv("PORT", "8080")),
         debug=False
     )
+
