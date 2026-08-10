@@ -16,7 +16,7 @@ CLIENT_KEY = os.getenv("TIKTOK_CLIENT_KEY")
 CLIENT_SECRET = os.getenv("TIKTOK_CLIENT_SECRET")
 REDIRECT_URI = os.getenv(
     "TIKTOK_REDIRECT_URI",
-    "http://127.0.0.1:8080/callback"
+    "https://backtoschoolai.onrender.com/callback"
 )
 
 VIDEO_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "video01-final.mp4")
@@ -69,7 +69,7 @@ def home():
         <!doctype html>
         <html>
         <head>
-            <title>BackToSchoolAI TikTok Sandbox</title>
+            <title>BackToSchoolAI TikTok Production</title>
             <style>
                 body {{
                     font-family: Arial, sans-serif;
@@ -126,7 +126,7 @@ def home():
     <!doctype html>
     <html>
     <head>
-        <title>BackToSchoolAI TikTok Sandbox</title>
+        <title>BackToSchoolAI TikTok Production</title>
         <style>
             body {
                 font-family: Arial, sans-serif;
@@ -147,7 +147,7 @@ def home():
     <body>
         <h1>BackToSchoolAI</h1>
 
-        <p>TikTok Sandbox Demo</p>
+        <p>TikTok Production</p>
 
         <a href="/login">
             <button>Connect TikTok</button>
@@ -172,7 +172,7 @@ def login():
     params = {
     "client_key": CLIENT_KEY,
     "response_type": "code",
-    "scope": "user.info.basic,video.upload,video.publish",
+    "scope": "user.info.basic",
     "redirect_uri": REDIRECT_URI,
     "state": state,
 }
@@ -555,7 +555,7 @@ if __name__ == "__main__":
 
     print()
     print("==========================================")
-    print(" BackToSchoolAI TikTok Sandbox Demo")
+    print(" BackToSchoolAI TikTok Production")
     print("==========================================")
     print()
     print("Open:")
@@ -565,7 +565,7 @@ if __name__ == "__main__":
     print()
 
     app.run(
-        host="127.0.0.1",
-        port=8080,
+        host="0.0.0.0",
+        port=int(os.getenv("PORT", "8080")),
         debug=False
     )
